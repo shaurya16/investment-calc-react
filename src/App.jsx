@@ -4,10 +4,10 @@ import Input from "./components/Input";
 import Results from "./components/Results";
 
 const initialState = {
-  initialInvestment: null,
-  annualInvestment: null,
-  expectedReturn: null,
-  duration: null,
+  initialInvestment: 10000,
+  annualInvestment: 1200,
+  expectedReturn: 5.2,
+  duration: 24,
 };
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     setState((prevState) => {
       return {
         ...prevState,
-        [investmentType]: updatedValue,
+        [investmentType]: +updatedValue,
       };
     });
   };
