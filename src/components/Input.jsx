@@ -1,15 +1,11 @@
-export default function Input({ title, handleChange }) {
+export default function Input({ title, investmentType, handleChange }) {
   return (
-    <ul>
-      <li>
-        <label>{title}</label>
-      </li>
-      <li>
-        <input
-          type="number"
-          onChange={() => handleChange(event.target.value)}
-        ></input>
-      </li>
-    </ul>
+    <p>
+      <label>{title}</label>
+      <input
+        type="number"
+        onChange={(event) => handleChange(event.target.value, investmentType)}
+      ></input>
+    </p>
   );
 }
