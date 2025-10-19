@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import Input from "./components/Input";
+import UserInput from "./components/UserInput";
 import Results from "./components/Results";
 
 const initialState = {
@@ -25,36 +25,7 @@ function App() {
   return (
     <div>
       <Header />
-      <section id="user-input">
-        <span className="input-group">
-          <Input
-            title="Initial Investment"
-            investmentType="initialInvestment"
-            value={state.initialInvestment}
-            handleChange={handleUpdate}
-          />
-          <Input
-            title="Annual Investment"
-            investmentType="annualInvestment"
-            value={state.annualInvestment}
-            handleChange={handleUpdate}
-          />
-        </span>
-        <span className="input-group">
-          <Input
-            title="Expected Return"
-            investmentType="expectedReturn"
-            value={state.expectedReturn}
-            handleChange={handleUpdate}
-          />
-          <Input
-            title="Duration"
-            investmentType="duration"
-            value={state.duration}
-            handleChange={handleUpdate}
-          />
-        </span>
-      </section>
+      <UserInput state={state} handleChange={handleUpdate} />
       <Results input={state} />
     </div>
   );
