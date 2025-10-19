@@ -13,6 +13,8 @@ const initialState = {
 function App() {
   const [state, setState] = useState(initialState);
 
+  const inputIsValid = state.duration > 0;
+
   const handleUpdate = (updatedValue, investmentType) => {
     setState((prevState) => {
       return {
@@ -23,11 +25,16 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <Header />
       <UserInput state={state} handleChange={handleUpdate} />
-      <Results input={state} />
-    </div>
+      {!inputIsValid && (
+        <p className="center">
+          Please enter a duration that is greater than zero.
+        </p>
+      )}
+      {inputIsValid && <Results input={state} />}
+    </>
   );
 }
 
